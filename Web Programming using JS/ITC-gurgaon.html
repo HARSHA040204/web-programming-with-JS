@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="ITC-gurgaon.css">
+    <title>Document</title>
+</head>
+<body>
+    <a href="gurgaon.html"><img src="./back.png" class="back"></a>
+     <section class="r"></section>
+   <script>
+     document.body.style.backgroundImage=  "url(gurgaon.png)";
+    document.body.style.backgroundSize ="2000px 1200px";
+    document.body.style.backgroundAttachment = "fixed";
+
+    async function loadPage() {
+            let request = new Request("ITC-gurgaon.json")
+            let response = await fetch(request)
+
+            let json_obj = await response.json()
+
+            loadheading(json_obj)
+            loadGurgaon(json_obj)
+            loadtable(json_obj)
+     }
+
+     function loadheading(json_obj){
+
+let s1=document.querySelector(".r")
+let a = document.createElement("h1")
+a.innerHTML=json_obj['main_head']
+
+let b = document.createElement("p")
+b.innerHTML=json_obj['sub_head']
+
+s1.appendChild(a)
+s1.appendChild(b)
+
+
+let box= document.createElement("div")
+  box.className="boxx"
+  
+
+  let hello=document.createElement("ul")
+  
+  let c=document.createElement("li")
+  let d=document.createElement("li")
+  let e=document.createElement("li")
+  let f=document.createElement("li")
+  let g=document.createElement("li")
+  let h= document.createElement("li")
+ let i= document.createElement("li")
+ let j=document.createElement("button")
+ 
+ 
+  
+  
+   c.innerHTML=json_obj['servicea']
+   d.innerHTML=json_obj['serviceb']
+   e.innerHTML=json_obj['servicec']
+   f.innerHTML=json_obj['serviced']
+   g.innerHTML=json_obj['servicee']
+   h.innerHTML=json_obj['servicef']
+   i.innerHTML=json_obj['serviceg']
+   j.innerHTML=json_obj['button']
+   
+
+
+   
+   hello.appendChild(c)
+   hello.appendChild(d)
+   hello.appendChild(e)
+   hello.appendChild(f)
+   hello.appendChild(g)
+   hello.appendChild(h)
+   hello.appendChild(i)
+   hello.appendChild(j)
+
+  
+   box.appendChild(hello)
+  
+   s1.appendChild(box)
+
+} 
+function loadGurgaon(json_obj){
+
+let s1=document.querySelector(".r")
+let image1 =document.createElement("img")
+  image1.src=json_obj['img1']
+  image1.className="mainimg"
+
+  let image2 =document.createElement("img")
+  image2.src=json_obj['img2']
+  image2.className="rightimg"
+
+  let image3 =document.createElement("img")
+  image3.src=json_obj['img3']
+  image3.className="middleimg"
+
+  let image4 =document.createElement("img")
+  image4.src=json_obj['img4']
+  image4.className="leftimg"
+
+
+s1.appendChild(image1)
+s1.appendChild(image2)
+s1.appendChild(image3)
+s1.appendChild(image4)
+
+
+
+}
+
+function loadtable(json_obj){
+
+let s1=document.querySelector(".r")
+let table=document.createElement("table")
+  table.className="box1"
+  table.style.border="2%"
+  table.style.cellpadding="50%"
+
+  let tr=document.createElement("tr")
+  let t=document.createElement("td")
+  let q=document.createElement("td")
+  let l=document.createElement("td")
+  let o=document.createElement("td")
+
+  let trl=document.createElement("tr")
+  let w=document.createElement("td")
+  let e=document.createElement("td")
+  let z=document.createElement("td")
+  let k=document.createElement("td")
+  let y=document.createElement("button")
+  let tro=document.createElement("tr")
+  let u=document.createElement("td")
+  let i=document.createElement("td")
+  let p=document.createElement("td")
+  let v=document.createElement("td")
+  let a=document.createElement("button")
+
+
+  t.innerHTML=json_obj['t']
+  q.innerHTML=json_obj['q']
+  l.innerHTML=json_obj['r']
+  o.innerHTML=json_obj['s']
+
+  w.innerHTML=json_obj['w']
+  e.innerHTML=json_obj['e']
+  z.innerHTML=json_obj['z']
+  y.innerHTML=json_obj['y']
+
+  u.innerHTML=json_obj['u']
+  i.innerHTML=json_obj['i']
+  p.innerHTML=json_obj['p']
+  a.innerHTML=json_obj['a']
+
+  tr.appendChild(t)
+  tr.appendChild(q)
+  tr.appendChild(l)
+  tr.appendChild(o)
+  trl.appendChild(w)
+  trl.appendChild(e)
+  trl.appendChild(z)
+  k.appendChild(y)
+  trl.appendChild(k)
+  tro.appendChild(u)
+  tro.appendChild(i)
+  tro.appendChild(p)
+  v.appendChild(a)
+  tro.appendChild(v)
+
+
+  table.appendChild(tr)
+  table.appendChild(trl)
+  table.appendChild(tro)
+  s1.appendChild(table)
+
+}    
+loadPage()
+   </script> 
+</body>
+</html>
